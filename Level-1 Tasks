@@ -1,0 +1,68 @@
+# Task
+
+# 1.String Reversal
+def rev_string(input_string):
+    return input_string[::-1]
+input_str = "hello"
+r_str = rev_string(input_str)
+print(r_str)
+
+
+# 2.Temperature Conversion
+def con_temp():
+    temp = float(input("Enter temp val: "))
+    unit = input("Enter the unit (C for Cel, F for Fah): ").upper()
+    if unit == 'C':
+        con_temp = (temp * 9/5) + 32 
+        print(temp, "°C is equal to", round(con_temp, 2), "°F")
+    elif unit == 'F':
+        con_temp = (temp - 32) * 5/9 
+        print(temp, "°F is equal to", round(con_temp, 2), "°C")
+    else:
+        print("Invalid unit.")
+con_temp()
+
+
+# 3.Email Validator
+def valid_email(email):
+    if "@" in email and "." in email:
+        local_part, domain_part = email.split('@', 1)
+        if local_part and domain_part:
+            return True
+    return False
+email = input("Enter email: ")
+if valid_email(email):
+   print(email + " is a valid email.")
+else:
+    print(email + " is not a valid email.")
+
+
+# 4.Calculator Program
+def calculator():
+    num1 = float(input("Num1: "))
+    num2 = float(input("Num2: "))
+    operator = input("Enter operator (+, -, *, %): ")
+    if operator == '+':
+        result = num1 + num2
+    elif operator == '-':
+        result = num1 - num2
+    elif operator == '*':
+        result = num1 * num2
+    elif operator == '%':
+        result = num1 % num2
+    else:
+        return "Invalid operator."
+    print("The result is:", result)  
+o= calculator()   
+print(o)
+
+
+# 5.Palindrome Checker
+def is_palin(s):
+    s = s.replace(" ", "").lower()
+    return s == s[::-1]
+input_str = input("Enter string: ")
+if is_palin(input_str):
+    print(input_str + " is a palindrome")
+else:
+    print(input_str + " is not a palindrome")

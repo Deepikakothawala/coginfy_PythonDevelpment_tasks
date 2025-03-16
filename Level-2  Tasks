@@ -1,1 +1,78 @@
+#Task
 
+1.Guessing Game 
+import random
+def guessing_game():
+    number = random.randint(1, 100)
+    print("Guess a number between 1 and 100!")
+    while True:
+        guess = int(input("Your guess: "))
+        if guess < number:
+            print("Too low")
+        elif guess > number:
+            print("Too high")
+        else:
+            print("You have guessed ")
+            break
+guessing_game()
+
+2.Number Guesser
+import random
+def number_guesser():
+    low = 1
+    high = 50
+    number = random.randint(low, high)
+    number = random.choice(range(low, high + 1))
+    while True:
+        guess = int(input("Your guess: "))
+        if guess < number:
+            print("Too low")
+        elif guess > number:
+            print("Too high")
+        else:
+            print("You guessed")
+            break
+number_guesser()
+
+3.Password Strength Checker
+def check_password(password):
+    if len(password) < 8:
+        return "Weak password"
+    if not any(c.isupper() for c in password):
+        return "Weak password"
+    if not any(c.islower() for c in password):
+        return "Weak password"
+    if not any(c.isdigit() for c in password):
+        return "Weak password"
+    if not any(c in "@$!%*?&" for c in password):
+        return "Weak password"
+    return "Strong password"
+password = input("Enter a password: ")
+print(check_password(password))
+
+4.Fibonacci Sequence 
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+n = int(input("Enter the no of terms: "))
+fib(n)
+
+5. File Manipulation
+file_name = input("Enter file name with extension: ")
+try:
+    with open(file_name, 'r') as file:
+        text = file.read()
+    words = text.split()
+    word_count = {}
+    for word in words:
+        word = word.lower() 
+        word_count[word] = word_count.get(word, 0) + 1
+    for word in sorted(word_count):
+        print(word + ": " + str(word_count[word]))
+except FileNotFoundError:
+    print("File not found")
+
+#filename(task5.txt)
+#cat dog cat bird dog cat fish bird dog cat
